@@ -20,9 +20,9 @@ body {
  * out of the box on hover (remove perspective if you don't want the 3D effect 
  */
 .flip-card {
+  position: relative;
   width: 300px;
   height: 450px;
-  /* border: 1px solid #f1f1f1; */
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
@@ -40,27 +40,34 @@ body {
   transform: rotateY(180deg);
 }
 
+.flip-card-inner:hover .social-icon {
+  opacity: 1;
+  top: 0;
+}
+
 /* Position the front and back side */
 .flip-card-front, .flip-card-back {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
+  border-radius: 20px;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
+  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px rgba(0, 0, 0,1), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
 /* Style the front side */
 .flip-card-front {
   cursor: pointer;
   background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px rgba(0, 0, 0,1), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
 .front-background-photo{
   height: 150px;
   min-width: 300px;
   background: #6c2d2c;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
 .front-perfil-photo{
   position: relative;
@@ -101,30 +108,31 @@ body {
 
 /* Style the back side */
 .flip-card-back {
-  position: absolute;
-  background-color: dodgerblue;
-  color: white;
+  background-color: #071011;
   transform: rotateY(180deg);
+  width: 100%;
+  height: 100%;
+
+  /* center */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
 }
 
-.inner-div:hover .social-icon {
-  opacity: 1;
-  top: 0;
-}
-
-.outer-div:hover .inner-div {
-  transform: rotateY(180deg);
-}
 
 .social-media-wrapper {
   font-size: 46px;
-  margin: 4px;
+  margin-left: 20px;
+  margin-right: 20px;
+  justify-content: center;
 }
+
 .social-media-wrapper .social-icon {
   position: relative;
   top: 20px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-right: 10px;
   opacity: 0;
   color: #fff;
   transition: all 0.4s cubic-bezier(0.3, 0.7, 0.1, 1.9);
