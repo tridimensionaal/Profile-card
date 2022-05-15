@@ -62,7 +62,7 @@ body {
 }
 
 .flip-card:hover .flip-card-front{
-  opacity: 0;
+    opacity: 0;
 }
 
 .front-background-photo{
@@ -73,7 +73,6 @@ body {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   overflow: hidden;
-
 }
 
 .front-perfil-photo{
@@ -103,6 +102,7 @@ body {
   text-transform: uppercase;
   font-size: 20px;
 }
+
 .front-text .front-text-p{
   position: relative;
   top: -15px;
@@ -118,7 +118,6 @@ body {
   position: absolute;
   background-color: #071011;
   transform: rotateY(180deg);
-  z-index: -1;
 
   top: 0;
   left: 0;
@@ -151,12 +150,15 @@ body {
   color: #fff;
   transition: all 0.4s cubic-bezier(0.3, 0.7, 0.1, 1.9);
 }
+
 .social-media-wrapper .social-icon:nth-child(1) {
   transition-delay: 0.4s;
 }
+
 .social-media-wrapper .social-icon:nth-child(2) {
   transition-delay: 0.5s;
 }
+
 .social-media-wrapper .social-icon:nth-child(3) {
   transition-delay: 0.6s;
 }
@@ -187,4 +189,3 @@ body {
 .fab:hover {
   top: -6px;
 }
-
