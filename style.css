@@ -1,77 +1,82 @@
-body {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
-.background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background-size: cover;
-  background-position: 0 50%;
+body {
+  /* 
+   * to center
+  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background: #42313a;
 }
 
-.outer-div {
-  perspective: 900px;
-  perspective-origin: 50% calc(50% - 18em);
+/* The flip card container - set the width and height to whatever you want. 
+ * We have added the border property to demonstrate that the flip itself goes 
+ * out of the box on hover (remove perspective if you don't want the 3D effect 
+ */
+.flip-card {
+  position: relative;
+  width: 300px;
+  height: 450px;
+  perspective: 900px; /* Remove this if you don't want the 3D effect */
 }
 
-.inner-div {
-  height: 450px;
-  max-width: 300px;
-  margin: 0 auto;
+/* This container is needed to position the front and back side */
+.flip-card-inner {
   position: relative;
-  border-radius: 5px;
-  font-weight: 400;
-  color: #071011;
-  font-size: 1rem;
-  text-align: center;
-  transition: all 0.6s cubic-bezier(0.8, -0.4, 0.2, 1.7);
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
   transform-style: preserve-3d;
 }
 
-.inner-div:hover .social-icon {
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-inner:hover .social-icon {
   opacity: 1;
   top: 0;
 }
 
-.outer-div:hover .inner-div {
-  transform: rotateY(180deg);
-}
-
-.front,
-.back {
-  position: relative;
-  top: 0;
-  left: 0;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-}
-
-.front {
-  cursor: pointer;
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  width: 100%;
   height: 100%;
-  background: #fff;
-  border-radius: 5px;
+  border-radius: 20px;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
   box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px rgba(0, 0, 0,1), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
-.front__bkg-photo {
+/* Style the front side */
+.flip-card-front {
+  cursor: pointer;
+  background-color: #fff;
+  transition: opacity 0.8s;
+}
+
+.flip-card:hover .flip-card-front{
+  opacity: 0;
+}
+
+.front-background-photo{
   position: relative;
   height: 150px;
-  width: 300px;
+  min-width: 300px;
   background: #6c2d2c;
-  background-size: cover;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
   overflow: hidden;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+
 }
-.front__face-photo {
+
+.front-perfil-photo{
   position: relative;
   top: -80px;
   height: 140px;
@@ -84,19 +89,21 @@ body {
   overflow: hidden;
 }
 
-.front__text {
+.front-text{
   position: relative;
   top: -65px;
   margin: 0 auto;
   font-family: "Montserrat";
+  text-align: center;
+  overflow: hidden;
 }
-.front__text .front__text-header {
+.front-text .front-text-header{
   font-weight: 700;
   font-family: "Oswald";
   text-transform: uppercase;
   font-size: 20px;
 }
-.front__text .front__text-para {
+.front-text .front-text-p{
   position: relative;
   top: -15px;
   color: #000;
@@ -106,57 +113,68 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-.back {
-  transform: rotateY(180deg);
+/* Style the back side */
+.flip-card-back {
   position: absolute;
+  background-color: #071011;
+  transform: rotateY(180deg);
+  z-index: -1;
+
   top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
-  background-color: #071011;
-  border-radius: 5px;
+  height: 100%;
+
+  /* center */
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
 
 .social-media-wrapper {
   font-size: 46px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  /* center */
+  align-items: center;
+  text-align: center;
+  display: block;
 }
+
 .social-media-wrapper .social-icon {
   position: relative;
-  top: 20px;
-  margin-left: 5px;
-  margin-right: 5px;
+  top: 40px;
+  margin-right: 10px;
   opacity: 0;
   color: #fff;
   transition: all 0.4s cubic-bezier(0.3, 0.7, 0.1, 1.9);
 }
 .social-media-wrapper .social-icon:nth-child(1) {
-  transition-delay: 0.6s;
+  transition-delay: 0.4s;
 }
 .social-media-wrapper .social-icon:nth-child(2) {
-  transition-delay: 0.7s;
+  transition-delay: 0.5s;
 }
 .social-media-wrapper .social-icon:nth-child(3) {
-  transition-delay: 0.8s;
+  transition-delay: 0.6s;
 }
 
 .social-media-wrapper .social-icon:nth-child(4) {
-  transition-delay: 0.9s;
+  transition-delay: 0.7s;
 }
 
 .social-media-wrapper .social-icon:nth-child(5) {
-  transition-delay: 1.0s;
+  transition-delay: 0.8s;
 }
 
 .social-media-wrapper .social-icon:nth-child(6) {
-  transition-delay: 1.1s;
+  transition-delay: 0.9s;
 }
 
 .social-media-wrapper .social-icon:nth-child(7) {
-  transition-delay: 1.2s;
+  transition-delay: 1.0s;
 }
 
 .fab {
@@ -167,5 +185,6 @@ body {
 }
 
 .fab:hover {
-  top: -5px;
+  top: -6px;
 }
+
