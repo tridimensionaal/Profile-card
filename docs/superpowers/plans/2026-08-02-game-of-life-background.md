@@ -561,6 +561,6 @@ Expected: the design, plan, JavaScript, tests, HTML, CSS, and deployment documen
 - [ ] **Step 5: Hand off to the publishing workflow**
 
 Use the `github:yeet` workflow to confirm the exact diff, push
-`agent/game-of-life-background`, and open a draft PR targeting `main`. The PR
+`feat/game-of-life-background`, and open a draft PR targeting `main`. The PR
 body must summarize the ambient canvas, readable card, reduced-motion behavior,
 and the `node --test test/*.test.js` validation.

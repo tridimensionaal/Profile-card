@@ -5,6 +5,7 @@ This repository uses Cloudflare Workers Static Assets. Only the files inside
 
 ```text
 public/
+├── game-of-life.js
 ├── index.html
 ├── style.css
 └── img/
