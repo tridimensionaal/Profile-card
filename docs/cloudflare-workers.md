@@ -8,7 +8,7 @@ public/
 ├── index.html
 ├── style.css
 └── img/
-    └── profile.png
+    └── profile-bacon.png
 ```
 
 `README.md`, `docs/`, and other files at the repository root stay in GitHub but
