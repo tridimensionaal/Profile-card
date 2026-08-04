@@ -6,11 +6,15 @@ A simple static personal profile card.
 
 ### Desktop
 
-![Profile card desktop preview](docs/profile-card-desktop.gif)
+<p align="center">
+  <img src="docs/profile-card-desktop.gif" alt="Profile card desktop preview">
+</p>
 
 ### Mobile
 
-<img src="docs/profile-card-mobile.gif" alt="Profile card mobile preview" width="320">
+<p align="center">
+  <img src="docs/profile-card-mobile.gif" alt="Profile card mobile preview" width="320">
+</p>
 
 - [Static page files](public/)
 - [Cloudflare deployment](docs/cloudflare-workers.md)
