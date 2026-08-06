@@ -1,4 +1,4 @@
-# Profile card
+# vcard
 
 A simple static personal profile card.
 
